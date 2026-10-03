@@ -26,7 +26,19 @@ switch($metodo){
             "mensaje"=>"Producto creado"
         ]);
     }
-break;
+    break;
+    case "DELETE":
+        $datos=json_decode(
+        file_get_contents("php://input")
+        );
+        $producto->id=$datos->id;
+        if($producto->eliminarAPI()){
+            echo json_encode([
+                "mensaje"=>"Producto eliminado"
+            ]);
+        }
+    break;
+
 
 }
 ?>

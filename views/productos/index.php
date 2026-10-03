@@ -20,3 +20,6 @@
     </tr>
 <?php endif; ?>
 </table>
+../../reportes/excel.php
+    Exportar Excel
+</a>

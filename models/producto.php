@@ -55,5 +55,20 @@ class Producto {
         $stmt->bindParam(":id",$this->id);
         return $stmt->execute();
     }
+    public function eliminarAPI(){
+        $sql="DELETE FROM productos
+            WHERE id=:id";
+        $stmt=$this->conn->prepare($sql);
+        $stmt->bindParam(":id",$this->id);
+        return $stmt->execute();
+    }
+    public function obtenerTodos()
+    {
+        $sql = "SELECT * FROM productos";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>
